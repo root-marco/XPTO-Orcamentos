@@ -124,7 +124,7 @@ namespace XPTO.UnitTests.Projects.Services
       var result = await _sut.Details(id);
 
       // Assert
-      result.Should().BeEquivalentTo(_mapper.Map<short>(ordemDeServico));
+      result.Should().BeEquivalentTo(_mapper.Map<OrdemDeServicoDto>(ordemDeServico));
     }
 
     # endregion

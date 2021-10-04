@@ -19,7 +19,7 @@ namespace XPTO.UnitTests.Fixtures
         NomeCliente = "Gabriel Enrico Fogaça",
         CpfPrestadorServico = "006.337.027-14",
         NomePrestadorServico = "Filipe Vicente Fogaça",
-        ValorServico = "1200",
+        ValorServico = "R$ 1200",
         DataExecucaoServico = new DateTime(2021, 10, 10)
       };
     }
@@ -46,7 +46,7 @@ namespace XPTO.UnitTests.Fixtures
         NomeCliente = "Marina Nina de Paula",
         CpfPrestadorServico = "829.203.834-50",
         NomePrestadorServico = "Giovanni Gustavo de Paula",
-        ValorServico = "600",
+        ValorServico = "R$ 600",
         DataExecucaoServico = new DateTime(2021, 10, 09)
       };
     }
