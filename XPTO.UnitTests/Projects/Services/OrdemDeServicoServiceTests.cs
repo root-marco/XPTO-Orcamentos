@@ -145,5 +145,47 @@ namespace XPTO.UnitTests.Projects.Services
 
     #endregion
 
+    # region UPDATE
+
+    [Fact]
+    public async Task Update_ReturnsDto()
+    {
+      // Arrange
+      var oldOrdemDeServico = OrdemDeServicoFixture.CreateValidOrdemDeServico();
+      var ordemDeServicoToUpdate = OrdemDeServicoFixture.CreateInvalidOrdemDeServicoDto();
+      var ordemDeServicoUpdated = _mapper.Map<OrdemDeServico>(ordemDeServicoToUpdate);
+
+      _ordemDeServicoRepositoryMock.Setup(x => x.Update(It.IsAny<OrdemDeServico>()))
+        .ReturnsAsync(() => ordemDeServicoUpdated);
+
+      // Act
+      var result = await _sut.Update(ordemDeServicoToUpdate);
+
+      // Assert
+      result.Should().BeEquivalentTo(_mapper.Map<OrdemDeServicoDto>(ordemDeServicoUpdated));
+    }
+
+    [Fact]
+    public void Update_ReturnsException()
+    {
+      // Arrange
+      var oldOrdemDeServico = OrdemDeServicoFixture.CreateValidOrdemDeServico();
+      var ordemDeServicoToUpdate = OrdemDeServicoFixture.CreateInvalidOrdemDeServicoDto();
+
+      _ordemDeServicoRepositoryMock.Setup(x => x.Update(It.IsAny<OrdemDeServico>()))
+        .ReturnsAsync(() => oldOrdemDeServico);
+
+      // Act
+      Func<Task<OrdemDeServicoDto>> act = async () =>
+      {
+        return await _sut.Create(ordemDeServicoToUpdate);
+      };
+
+      // Assert
+      act.Should().ThrowAsync<Exception>();
+    }
+
+    #endregion
+
   }
 }
