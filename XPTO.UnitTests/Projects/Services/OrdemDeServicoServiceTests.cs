@@ -101,7 +101,7 @@ namespace XPTO.UnitTests.Projects.Services
       {
         return await _sut.Create(ordemDeServicoToCreate);
       };
-    
+
       // Assert
       act.Should().ThrowAsync<Exception>();
     }
@@ -135,7 +135,7 @@ namespace XPTO.UnitTests.Projects.Services
 
       _ordemDeServicoRepositoryMock.Setup(x => x.Details(id))
         .ReturnsAsync(() => null);
-      
+
       // Act
       var result = await _sut.Details(id);
 
@@ -143,7 +143,7 @@ namespace XPTO.UnitTests.Projects.Services
       result.Should().Be(null);
     }
 
-    # endregion
+    #endregion
 
   }
 }
