@@ -16,13 +16,13 @@ using Xunit;
 
 namespace XPTO.UnitTests.Projects.Services
 {
-  public class OrdemDeServicoServiceTest
+  public class OrdemDeServicoServiceTests
   {
     private readonly IOrdemDeServicoService _sut;
     private readonly IMapper _mapper;
     private readonly Mock<IOrdemDeServicoRepository> _ordemDeServicoRepositoryMock;
 
-    public OrdemDeServicoServiceTest()
+    public OrdemDeServicoServiceTests()
     {
       _mapper = AutoMapperConfig.GetConfiguration();
       _ordemDeServicoRepositoryMock = new Mock<IOrdemDeServicoRepository>();
@@ -125,6 +125,22 @@ namespace XPTO.UnitTests.Projects.Services
 
       // Assert
       result.Should().BeEquivalentTo(_mapper.Map<OrdemDeServicoDto>(ordemDeServico));
+    }
+
+    [Fact]
+    public async Task Details_RetunsNull()
+    {
+      // Arrange
+      var id = new Randomizer().Int(0, 1000);
+
+      _ordemDeServicoRepositoryMock.Setup(x => x.Details(id))
+        .ReturnsAsync(() => null);
+      
+      // Act
+      var result = await _sut.Details(id);
+
+      // Assert
+      result.Should().Be(null);
     }
 
     # endregion
