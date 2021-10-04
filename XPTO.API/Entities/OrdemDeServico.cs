@@ -19,7 +19,8 @@ namespace XPTO.API.Entities
     public string CpfPrestadorServico { get; set; }
     [Required]
     public string NomePrestadorServico { get; set; }
-    public decimal ValorServico { get; set; }
+    [Required]
+    public string ValorServico { get; set; }
     [Required]
     public DateTime DataExecucaoServico { get; set; }
   }

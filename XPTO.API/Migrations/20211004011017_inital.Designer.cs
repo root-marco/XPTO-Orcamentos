@@ -10,8 +10,8 @@ using XPTO.API.Infrastructure.Context;
 namespace XPTO.API.Migrations
 {
     [DbContext(typeof(OrdemDeServicoContext))]
-    [Migration("20211003225446_Initial")]
-    partial class Initial
+    [Migration("20211004011017_inital")]
+    partial class inital
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -54,8 +54,9 @@ namespace XPTO.API.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<decimal>("ValorServico")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<string>("ValorServico")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 

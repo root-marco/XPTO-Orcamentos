@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace XPTO.API.Migrations
 {
-    public partial class Initial : Migration
+    public partial class inital : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -19,7 +19,7 @@ namespace XPTO.API.Migrations
                     NomeCliente = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CpfPrestadorServico = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     NomePrestadorServico = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ValorServico = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    ValorServico = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     DataExecucaoServico = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>

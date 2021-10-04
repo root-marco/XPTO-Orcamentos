@@ -19,7 +19,7 @@ namespace XPTO.API.ViewModels
     [Required]
     public string NomePrestadorServico { get; set; }
     [Required]
-    public decimal ValorServico { get; set; }
+    public string ValorServico { get; set; }
     [Required]
     public DateTime DataExecucaoServico { get; set; }
   }

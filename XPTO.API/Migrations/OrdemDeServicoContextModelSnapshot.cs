@@ -52,8 +52,9 @@ namespace XPTO.API.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<decimal>("ValorServico")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<string>("ValorServico")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
