@@ -1,0 +1,79 @@
+@model XPTO.API.Services.Dtos.OrdemDeServicoDto
+
+@{
+  ViewData["Title"] = "Editar";
+}
+
+<h1>Editar Ordem de Serviço</h1>
+
+<hr/>
+<div class="row">
+  <div class="col-md-4">
+
+    <form asp-action="Edit">
+
+      <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+      <input type="hidden" asp-for="Id"/>
+
+      <div class="form-group">
+        <label asp-for="NumeroOrdemDeServico" class="control-label">Número da Ordem De Serviço</label>
+        <input asp-for="NumeroOrdemDeServico" class="form-control"/>
+        <span asp-validation-for="NumeroOrdemDeServico" class="text-danger"></span>
+      </div>
+
+      <div class="form-group">
+        <label asp-for="TituloServico" class="control-label">Título do Serviço</label>
+        <input asp-for="TituloServico" class="form-control"/>
+        <span asp-validation-for="TituloServico" class="text-danger"></span>
+      </div>
+
+      <div class="form-group">
+        <label asp-for="CnpjCliente" class="control-label">CNPJ do Cliente</label>
+        <input asp-for="CnpjCliente" class="form-control"/>
+        <span asp-validation-for="CnpjCliente" class="text-danger"></span>
+      </div>
+
+      <div class="form-group">
+        <label asp-for="NomeCliente" class="control-label">Nome do Cliente</label>
+        <input asp-for="NomeCliente" class="form-control"/>
+        <span asp-validation-for="NomeCliente" class="text-danger"></span>
+      </div>
+
+      <div class="form-group">
+        <label asp-for="CpfPrestadorServico" class="control-label">CPF do Prestador de Serviço</label>
+        <input asp-for="CpfPrestadorServico" class="form-control"/>
+        <span asp-validation-for="CpfPrestadorServico" class="text-danger"></span>
+      </div>
+
+      <div class="form-group">
+        <label asp-for="NomePrestadorServico" class="control-label">Nome do Prestador de Serviço</label>
+        <input asp-for="NomePrestadorServico" class="form-control"/>
+        <span asp-validation-for="NomePrestadorServico" class="text-danger"></span>
+      </div>
+
+      <div class="form-group">
+        <label asp-for="ValorServico" class="control-label">Valor do Serviço</label>
+        <input asp-for="ValorServico" class="form-control"/>
+        <span asp-validation-for="ValorServico" class="text-danger"></span>
+      </div>
+
+      <div class="form-group">
+        <label asp-for="DataExecucaoServico" class="control-label">Data de Execução do Serviço</label>
+        <input asp-for="DataExecucaoServico" class="form-control"/>
+        <span asp-validation-for="DataExecucaoServico" class="text-danger"></span>
+      </div>
+
+      <div class="form-group">
+        <input type="submit" value="Save" class="btn btn-primary"/>
+      </div>
+
+    </form>
+
+  </div>
+</div>
+
+<a asp-action="Index">Voltar para a lista</a>
+
+@section Scripts {
+  @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

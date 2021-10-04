@@ -1,0 +1,54 @@
+@model XPTO.API.Services.Dtos.OrdemDeServicoDto
+
+@{
+  ViewData["Title"] = "Ordens De Serviço";
+}
+
+<h1>Ordens de Serviços</h1>
+
+<button>
+  <a asp-action="Create">Criar Ordem de Serviço</a>
+</button>
+
+<form asp-controller="OrdemDeServico" asp-action="Index" method="get" style="float: right">
+  <p>
+    Título do Serviço: <input type="text" asp-for="SearchString"/>
+    <input type="submit" value="Filtrar"/>
+  </p>
+</form>
+
+<table class="table">
+
+  <thead>
+  <tr>
+    <th>Número</th>
+    <th>Título do Serviço</th>
+    <th>Nome do Cliente</th>
+    <th>Valor do Serviço</th>
+    <th>Data de Execução</th>
+    <th></th>
+  </tr>
+  </thead>
+
+  <tbody>
+
+  @foreach (var item in Model.Ordens)
+  {
+    <tr>
+
+      <td>@Html.DisplayFor(modelItem => item.NumeroOrdemDeServico)</td>
+      <td>@Html.DisplayFor(modelItem => item.TituloServico)</td>
+      <td>@Html.DisplayFor(modelItem => item.NomeCliente)</td>
+      <td>@Html.DisplayFor(modelItem => item.ValorServico)</td>
+      <td>@Html.DisplayFor(modelItem => item.DataExecucaoServico)</td>
+
+      <td>
+        <a asp-action="Details" asp-route-id="@item.Id">Detalhes</a> |
+        <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+        <a asp-action="Delete" asp-route-id="@item.Id">Deletar</a>
+      </td>
+
+    </tr>
+  }
+  </tbody>
+</table>

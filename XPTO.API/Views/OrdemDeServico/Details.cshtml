@@ -1,0 +1,75 @@
+@model XPTO.API.Services.Dtos.OrdemDeServicoDto
+
+@{
+  ViewData["Title"] = "Detalhes";
+}
+
+<h1>Detalhes</h1>
+
+<div>
+  <hr/>
+  <dl class="row">
+
+    <dt class="col-sm-3">
+      Número da Ordem de Serviço
+    </dt>
+    <dd class="col-sm-9">
+      @Html.DisplayFor(model => model.NumeroOrdemDeServico)
+    </dd>
+
+    <dt class="col-sm-3">
+      Título do Serviço
+    </dt>
+    <dd class="col-sm-9">
+      @Html.DisplayFor(model => model.TituloServico)
+    </dd>
+
+    <dt class="col-sm-3">
+      CNPJ do Cliente
+    </dt>
+    <dd class="col-sm-9">
+      @Html.DisplayFor(model => model.CnpjCliente)
+    </dd>
+
+    <dt class="col-sm-3">
+      Nome do Cliente
+    </dt>
+    <dd class="col-sm-9">
+      @Html.DisplayFor(model => model.NomeCliente)
+    </dd>
+
+    <dt class="col-sm-3">
+      CPF do Prestador de Serviço
+    </dt>
+    <dd class="col-sm-9">
+      @Html.DisplayFor(model => model.CpfPrestadorServico)
+    </dd>
+
+    <dt class="col-sm-3">
+      Nome do Prestador de Serviço
+    </dt>
+    <dd class="col-sm-9">
+      @Html.DisplayFor(model => model.NomePrestadorServico)
+    </dd>
+
+    <dt class="col-sm-3">
+      Valor do Serviço
+    </dt>
+    <dd class="col-sm-9">
+      @Html.DisplayFor(model => model.ValorServico)
+    </dd>
+
+    <dt class="col-sm-3">
+      Data de Execução do Serviço
+    </dt>
+    <dd class="col-sm-9">
+      @Html.DisplayFor(model => model.DataExecucaoServico)
+    </dd>
+
+  </dl>
+</div>
+
+<div>
+  <a asp-action="Edit" asp-route-id="@Model.Id">Editar</a> |
+  <a asp-action="Index">Voltar Para a Lista</a>
+</div>
